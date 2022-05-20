@@ -1,0 +1,35 @@
+[
+    {
+        "terminUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "titel": "Verabredung mit Justin",
+        "ganzTaegig": false,
+        "beschreibung": "heute werde ich justin um 10 Uhr, beim Parkplatz treffen.",
+        "startDatumZeit": "2022-06-02T10:10:00:000",
+        "endDatumZeit": "2022-06-02T10:15:00:000"
+    },
+    {
+        "terminUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "titel": "Geburtstag mama",
+        "ganzTaegig": true,
+        "beschreibung": "heute feiert meine Mutter ihren 43. Geburtstag",
+        "startDatumZeit": "2022-06-03T10:00:00:000",
+        "endDatumZeit": "2022-06-04T10:00:00:000"
+    },
+    {
+        "terminUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "titel": "Auffahrt",
+        "ganzTaegig": false,
+        "beschreibung": "frei",
+        "startDatumZeit": "2022-07-02T10:12:00:000",
+        "endDatumZeit": "2022-07-05T10:15:00:000"
+    },
+    {
+        "terminUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "titel": "Geburtstag Martin",
+        "ganzTaegig": true,
+        "beschreibung": "geburtstag Martin",
+        "startDatumZeit": "2022-08-02T10:00:00:000",
+        "endDatumZeit": "2022-08-03T10:00:00:000"
+    }
+]
+
