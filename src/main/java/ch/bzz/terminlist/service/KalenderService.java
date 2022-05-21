@@ -1,7 +1,7 @@
 package ch.bzz.terminlist.service;
 
 import ch.bzz.terminlist.data.DataHandler;
-import ch.bzz.terminlist.model.Termin;
+import ch.bzz.terminlist.model.Kalender;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,32 +12,32 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * services for reading termine
+ * services for reading kalender
  */
-@Path("termin")
-public class TerminService {
+@Path("kalender")
+public class KalenderService {
 
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listTermine() {
-        List<Termin> terminList = DataHandler.getInstance().readAllTermine();
+    public Response listkalender() {
+        List<Kalender> kalenderList = DataHandler.getInstance().readAllKalender();
         return Response
                 .status(200)
-                .entity(terminList)
+                .entity(kalenderList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readTermin(
-            @QueryParam("uuid") String terminUUID
+    public Response readKalender(
+            @QueryParam("id") String kalenderID
     ) {
-        Termin termin = DataHandler.getInstance().readTerminByUUID(terminUUID);
+        Kalender kalender = DataHandler.getInstance().readKalendererByID(kalenderID);
         return Response
                 .status(200)
-                .entity(termin)
+                .entity(kalender)
                 .build();
     }
 

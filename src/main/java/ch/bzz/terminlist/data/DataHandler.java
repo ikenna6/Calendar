@@ -79,12 +79,12 @@ public class DataHandler {
     }
 
     /**
-     * reads a kalender by its uuid
+     * reads a kalender by its id
      *
      * @param kalenderID
      * @return the kalender (null=not found)
      */
-    public Kalender readKalendererByUUID(String kalenderID) {
+    public Kalender readKalendererByID(String kalenderID) {
         Kalender kalender = null;
         for (Kalender entry : getKalenderList()) {
             if (entry.getKalenderID().equals(kalenderID)) {

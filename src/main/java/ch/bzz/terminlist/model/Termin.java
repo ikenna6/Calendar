@@ -11,9 +11,7 @@ public class Termin {
     private LocalDateTime startDatumZeit;
     private LocalDateTime endDatumZeit;
 
-    public static void main(String[] args) {
-        System.out.println(LocalDateTime.now());
-    }
+
     /**
      * gets terminUUID
      *
