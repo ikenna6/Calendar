@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "d4cf7979-7438-42a1-b88d-3d8ac46f122d",
+		"name": "Kalender",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all termine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/termin/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"termin",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read termin by uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/termin/read?uuid=fb1ceee3-99ef-4b41-8383-4c99ca3421e6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"termin",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "fb1ceee3-99ef-4b41-8383-4c99ca3421e6"
+						},
+						{
+							"key": "uuid",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"disabled": true
+						},
+						{
+							"key": "uuid",
+							"value": "ae10e2c4-b272-4e75-b5b4-17fc641d878a",
+							"disabled": true
+						},
+						{
+							"key": "uuid",
+							"value": "bb028016-c954-4c82-9d81-c113c652bfb5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read termin by a false uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"trying to read a termin with a incorrect uuid\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(null);",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/termin/read?uuid=ikennaog-bueritaf-sirmatte-wjunior1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"termin",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ikennaog-bueritaf-sirmatte-wjunior1",
+							"description": "Falsche uuid"
+						}
+					]
+				},
+				"description": "testing with a wrong uuid"
+			},
+			"response": []
+		},
+		{
+			"name": "read kalender by kalenderID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/kalender/read?id=kalender1-2022-05-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"kalender",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "kalender2-2022-06-19",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "kalender3-2022-07-19",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "kalender1-2022-05-19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get alle kalender",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/kalender/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"kalender",
+						"list"
+					]
+				},
+				"description": "gets all Kalender"
+			},
+			"response": []
+		},
+		{
+			"name": "read kalender by false kalenderID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"trying to read a kalender with a invalid kalenderid\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Kalender-1.0/resource/kalender/read?id=kalender10-2022-05-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Kalender-1.0",
+						"resource",
+						"kalender",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "kalender10-2022-05-19"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

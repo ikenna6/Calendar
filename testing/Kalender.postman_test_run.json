@@ -1,0 +1,168 @@
+{
+	"id": "199ef990-8d17-4198-b52c-ffff9381facd",
+	"name": "Kalender",
+	"timestamp": "2022-05-23T20:45:12.934Z",
+	"collection_id": "d4cf7979-7438-42a1-b88d-3d8ac46f122d",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 2,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "dd8d4266-97d9-4adc-a2ee-5f3f5ecf3b8b",
+			"name": "get all termine",
+			"url": "http://localhost:8080/Kalender-1.0/resource/termin/list",
+			"time": 93,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				93
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "48defe26-c5de-4f99-97ba-54e3552eed2e",
+			"name": "read termin by uuid",
+			"url": "http://localhost:8080/Kalender-1.0/resource/termin/read?uuid=fb1ceee3-99ef-4b41-8383-4c99ca3421e6",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2e7a7487-a62f-4ff2-878d-bdb545ddc3bc",
+			"name": "read termin by a false uuid",
+			"url": "http://localhost:8080/Kalender-1.0/resource/termin/read?uuid=ikennaog-bueritaf-sirmatte-wjunior1",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"trying to read a termin with a incorrect uuid": true
+			},
+			"testPassFailCounts": {
+				"trying to read a termin with a incorrect uuid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"trying to read a termin with a incorrect uuid": true
+				}
+			]
+		},
+		{
+			"id": "53ca4da7-1d6b-4b93-a109-d1fbbc76b51c",
+			"name": "read kalender by kalenderID",
+			"url": "http://localhost:8080/Kalender-1.0/resource/kalender/read?id=kalender1-2022-05-19",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9e454f56-e569-4094-ad34-5adf2a4cf131",
+			"name": "get alle kalender",
+			"url": "http://localhost:8080/Kalender-1.0/resource/kalender/list",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				27
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dd32d26d-9c9b-4bec-a972-26acf34c46e3",
+			"name": "read kalender by false kalenderID",
+			"url": "http://localhost:8080/Kalender-1.0/resource/kalender/read?id=kalender10-2022-05-19",
+			"time": 25,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"trying to read a kalender with a invalid kalenderid": true
+			},
+			"testPassFailCounts": {
+				"trying to read a kalender with a invalid kalenderid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				25
+			],
+			"allTests": [
+				{
+					"trying to read a kalender with a invalid kalenderid": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 181,
+	"collection": {
+		"requests": [
+			{
+				"id": "dd8d4266-97d9-4adc-a2ee-5f3f5ecf3b8b",
+				"method": "GET"
+			},
+			{
+				"id": "48defe26-c5de-4f99-97ba-54e3552eed2e",
+				"method": "GET"
+			},
+			{
+				"id": "2e7a7487-a62f-4ff2-878d-bdb545ddc3bc",
+				"method": "GET"
+			},
+			{
+				"id": "53ca4da7-1d6b-4b93-a109-d1fbbc76b51c",
+				"method": "GET"
+			},
+			{
+				"id": "9e454f56-e569-4094-ad34-5adf2a4cf131",
+				"method": "GET"
+			},
+			{
+				"id": "dd32d26d-9c9b-4bec-a972-26acf34c46e3",
+				"method": "GET"
+			}
+		]
+	}
+}
