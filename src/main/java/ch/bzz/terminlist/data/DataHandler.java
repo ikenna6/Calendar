@@ -126,6 +126,7 @@ public class DataHandler {
                     )
             );
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
             Kalender[] kalenders = objectMapper.readValue(jsonData, Kalender[].class);
             for (Kalender kalender : kalenders) {
                 getKalenderList().add(kalender);
