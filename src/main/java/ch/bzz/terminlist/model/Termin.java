@@ -11,7 +11,6 @@ public class Termin {
     private LocalDateTime startDatumZeit;
     private LocalDateTime endDatumZeit;
 
-
     /**
      * gets terminUUID
      *
@@ -22,7 +21,7 @@ public class Termin {
     }
 
     /**
-     * gets terminUUID
+     * sets terminUUID
      *
      * @param terminUUID the value to set
      */
@@ -40,7 +39,7 @@ public class Termin {
     }
 
     /**
-     * gets titel
+     * sets titel
      *
      * @param titel the value to set
      */
@@ -58,7 +57,7 @@ public class Termin {
     }
 
     /**
-     * gets ganzTaegig
+     * sets ganzTaegig
      *
      * @param ganzTaegig the value to set
      */
@@ -76,7 +75,7 @@ public class Termin {
     }
 
     /**
-     * gets beschreibung
+     * sets beschreibung
      *
      * @param beschreibung the value to set
      */
@@ -94,7 +93,7 @@ public class Termin {
     }
 
     /**
-     * gets startDatumZeit
+     * sets startDatumZeit
      *
      * @param startDatumZeit the value to set
      */
@@ -112,7 +111,7 @@ public class Termin {
     }
 
     /**
-     * gets endDatumZeit
+     * sets endDatumZeit
      *
      * @param endDatumZeit the value to set
      */
