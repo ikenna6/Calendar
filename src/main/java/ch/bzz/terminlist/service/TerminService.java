@@ -21,7 +21,7 @@ public class TerminService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listTermine() {
-        List<Termin> terminList = DataHandler.getInstance().readAllTermine();
+        List<Termin> terminList = DataHandler.readAllTermine();
         return Response
                 .status(200)
                 .entity(terminList)
@@ -34,7 +34,7 @@ public class TerminService {
     public Response readTermin(
             @QueryParam("uuid") String terminUUID
     ) {
-        Termin termin = DataHandler.getInstance().readTerminByUUID(terminUUID);
+        Termin termin = DataHandler.readTerminByUUID(terminUUID);
         return Response
                 .status(200)
                 .entity(termin)

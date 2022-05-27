@@ -21,7 +21,7 @@ public class KalenderService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listkalender() {
-        List<Kalender> kalenderList = DataHandler.getInstance().readAllKalender();
+        List<Kalender> kalenderList = DataHandler.readAllKalender();
         return Response
                 .status(200)
                 .entity(kalenderList)
@@ -34,7 +34,7 @@ public class KalenderService {
     public Response readKalender(
             @QueryParam("id") String kalenderID
     ) {
-        Kalender kalender = DataHandler.getInstance().readKalendererByID(kalenderID);
+        Kalender kalender = DataHandler.readKalenderByID(kalenderID);
         return Response
                 .status(200)
                 .entity(kalender)
