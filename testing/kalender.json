@@ -10,5 +10,17 @@
   {
     "kalenderID": "privat13-1653851677853",
     "kalenderName": "privat13"
+  },
+  {
+    "kalenderID": "kalender1-2022-05-19",
+    "kalenderName": "kalender1"
+  },
+  {
+    "kalenderID": "kalender2-2022-06-19",
+    "kalenderName": "kalender2"
+  },
+  {
+    "kalenderID": "kalender3-2022-07-19",
+    "kalenderName": "kalender3"
   }
 ]
