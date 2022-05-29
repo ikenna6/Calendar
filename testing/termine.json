@@ -1,20 +1,20 @@
 [
   {
     "terminUUID": "fb1ceee3-99ef-4b41-8383-4c99ca3421e6",
-    "titel": "Verabredung mit Justin",
+    "titel": "edited Termin",
     "ganzTaegig": false,
-    "beschreibung": "heute werde ich justin um 10 Uhr, beim Parkplatz treffen.",
-    "startDatumZeit": "2022-06-20T10:00:00.000",
-    "endDatumZeit": "2022-06-20T11:00:00.000",
-    "kalenderID": "kalender1-2022-05-19"
+    "beschreibung": "lolipop",
+    "startDatumZeit": "2022-07-20T16:00:00",
+    "endDatumZeit": "2022-07-20T16:15:00",
+    "kalenderID": "kalender3-2022-07-19"
   },
   {
     "terminUUID": "c306698f-44ac-43cc-a725-ef9ed950fe14",
     "titel": "Geburtstag mama",
     "ganzTaegig": true,
     "beschreibung": "heute feiert meine Mutter ihren 43. Geburtstag",
-    "startDatumZeit": "2022-07-20T00:00:00.000",
-    "endDatumZeit": "2022-07-21T00:00:00.000",
+    "startDatumZeit": "2022-07-20T00:00:00",
+    "endDatumZeit": "2022-07-21T00:00:00",
     "kalenderID": "kalender1-2022-05-19"
   },
   {
@@ -22,8 +22,8 @@
     "titel": "Auffahrt",
     "ganzTaegig": true,
     "beschreibung": "frei",
-    "startDatumZeit": "2022-05-26T00:00:00.000",
-    "endDatumZeit": "2022-05-30T00:00:00.000",
+    "startDatumZeit": "2022-05-26T00:00:00",
+    "endDatumZeit": "2022-05-30T00:00:00",
     "kalenderID": "kalender2-2022-06-19"
   },
   {
@@ -31,10 +31,8 @@
     "titel": "Geburtstag Martin",
     "ganzTaegig": true,
     "beschreibung": "geburtstag Martin",
-    "startDatumZeit": "2022-09-20T00:00:00.000",
-    "endDatumZeit": "2022-09-21T00:00:00.000",
+    "startDatumZeit": "2022-09-20T00:00:00",
+    "endDatumZeit": "2022-09-21T00:00:00",
     "kalenderID": "kalender3-2022-07-19"
   }
 ]
-
-

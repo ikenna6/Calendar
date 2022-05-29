@@ -41,14 +41,13 @@ public class TerminService {
     }
 
     /**
-     *
      * @param titel
      * @param beschreibung
      * @param ganzTaegig
      * @param startDatumZeit
      * @param endDatumZeit
      * @param kalenderID
-     * @return
+     * @return Response
      */
     @PUT
     @Path("create")
@@ -85,7 +84,7 @@ public class TerminService {
      * @param startDatumZeit
      * @param endDatumZeit
      * @param kalenderID
-     * @return
+     * @return Response
      */
     @POST
     @Path("update")
@@ -107,6 +106,7 @@ public class TerminService {
             termin.setGanzTaegig(ganzTaegig);
             termin.setStartDatumZeit(LocalDateTime.parse(startDatumZeit));
             termin.setEndDatumZeit(LocalDateTime.parse(endDatumZeit));
+            termin.setKalenderID(kalenderID);
 
             DataHandler.updateTermin();
         } else {
