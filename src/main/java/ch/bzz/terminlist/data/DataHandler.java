@@ -219,11 +219,11 @@ public final class DataHandler {
         FileOutputStream fileOutputStream = null;
         Writer fileWriter;
 
-        String terminPath = Config.getProperty("kalenderJSON");
+        String kalenderPath = Config.getProperty("kalenderJSON");
         try {
-            fileOutputStream = new FileOutputStream(terminPath);
+            fileOutputStream = new FileOutputStream(kalenderPath);
             fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
-            objectWriter.writeValue(fileWriter, getTerminList());
+            objectWriter.writeValue(fileWriter, getKalenderList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -1,6 +1,7 @@
 package ch.bzz.terminlist.model;
 
-import java.util.List;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class Kalender {
     private String kalenderID;
@@ -42,25 +43,10 @@ public class Kalender {
         this.kalenderName = kalenderName;
     }
 
-    /**
-     * gets termine
-     *
-     * @return value of termine
-     */
-    public List<Termin> getTermine() {
-        return termine;
+
+    public static String generatekalenderID(String kalenderName) {
+        LocalDateTime now = LocalDateTime.now();
+        Timestamp timestamp = Timestamp.valueOf(now);
+        return kalenderName + "-" + timestamp.getTime();
     }
-
-    /**
-     * gets termine
-     *
-     * @param termine the value to set
-     */
-    public void setTermine(List<Termin> termine) {
-        this.termine = termine;
-    }
-
-    private List<Termin> termine;
-
-
 }

@@ -4,8 +4,20 @@
     "titel": "edited Termin",
     "ganzTaegig": false,
     "beschreibung": "lolipop",
-    "startDatumZeit": "2022-07-20T16:00:00",
-    "endDatumZeit": "2022-07-20T16:15:00",
+    "startDatumZeit": [
+      2022,
+      7,
+      20,
+      16,
+      0
+    ],
+    "endDatumZeit": [
+      2022,
+      7,
+      20,
+      16,
+      15
+    ],
     "kalenderID": "kalender3-2022-07-19"
   },
   {
@@ -13,8 +25,20 @@
     "titel": "Geburtstag mama",
     "ganzTaegig": true,
     "beschreibung": "heute feiert meine Mutter ihren 43. Geburtstag",
-    "startDatumZeit": "2022-07-20T00:00:00",
-    "endDatumZeit": "2022-07-21T00:00:00",
+    "startDatumZeit": [
+      2022,
+      7,
+      20,
+      0,
+      0
+    ],
+    "endDatumZeit": [
+      2022,
+      7,
+      21,
+      0,
+      0
+    ],
     "kalenderID": "kalender1-2022-05-19"
   },
   {
@@ -22,8 +46,20 @@
     "titel": "Auffahrt",
     "ganzTaegig": true,
     "beschreibung": "frei",
-    "startDatumZeit": "2022-05-26T00:00:00",
-    "endDatumZeit": "2022-05-30T00:00:00",
+    "startDatumZeit": [
+      2022,
+      5,
+      26,
+      0,
+      0
+    ],
+    "endDatumZeit": [
+      2022,
+      5,
+      30,
+      0,
+      0
+    ],
     "kalenderID": "kalender2-2022-06-19"
   },
   {
@@ -31,8 +67,20 @@
     "titel": "Geburtstag Martin",
     "ganzTaegig": true,
     "beschreibung": "geburtstag Martin",
-    "startDatumZeit": "2022-09-20T00:00:00",
-    "endDatumZeit": "2022-09-21T00:00:00",
+    "startDatumZeit": [
+      2022,
+      9,
+      20,
+      0,
+      0
+    ],
+    "endDatumZeit": [
+      2022,
+      9,
+      21,
+      0,
+      0
+    ],
     "kalenderID": "kalender3-2022-07-19"
   }
 ]
