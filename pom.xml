@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.bzz</groupId>
-    <artifactId>Kalender</artifactId>
+    <artifactId>Calendar</artifactId>
     <version>1.0</version>
-    <name>Kalender</name>
+    <name>Calendar</name>
     <packaging>war</packaging>
 
     <properties>

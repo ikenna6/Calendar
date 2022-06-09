@@ -1,0 +1,86 @@
+[
+  {
+    "eventUUID": "fb1ceee3-99ef-4b41-8383-4c99ca3421e6",
+    "title": "edited Termin",
+    "allDay": false,
+    "description": "lolipop",
+    "startDateTime": [
+      2022,
+      7,
+      20,
+      16,
+      0
+    ],
+    "endDateTime": [
+      2022,
+      7,
+      20,
+      16,
+      15
+    ],
+    "calendarID": "kalender3-2022-07-19"
+  },
+  {
+    "eventUUID": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+    "title": "Geburtstag mama",
+    "allDay": true,
+    "description": "heute feiert meine Mutter ihren 43. Geburtstag",
+    "startDateTime": [
+      2022,
+      7,
+      20,
+      0,
+      0
+    ],
+    "endDateTime": [
+      2022,
+      7,
+      21,
+      0,
+      0
+    ],
+    "calendarID": "kalender1-2022-05-19"
+  },
+  {
+    "eventUUID": "ae10e2c4-b272-4e75-b5b4-17fc641d878a",
+    "title": "Auffahrt",
+    "allDay": true,
+    "description": "frei",
+    "startDateTime": [
+      2022,
+      5,
+      26,
+      0,
+      0
+    ],
+    "endDateTime": [
+      2022,
+      5,
+      30,
+      0,
+      0
+    ],
+    "calendarID": "kalender2-2022-06-19"
+  },
+  {
+    "eventUUID": "bb028016-c954-4c82-9d81-c113c652bfb5",
+    "title": "Geburtstag Martin",
+    "allDay": true,
+    "description": "geburtstag Martin",
+    "startDateTime": [
+      2022,
+      9,
+      20,
+      0,
+      0
+    ],
+    "endDateTime": [
+      2022,
+      9,
+      21,
+      0,
+      0
+    ],
+    "calendarID": "kalender3-2022-07-19"
+  }
+]

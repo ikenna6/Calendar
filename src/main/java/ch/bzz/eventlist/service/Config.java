@@ -1,4 +1,4 @@
-package ch.bzz.terminlist.service;
+package ch.bzz.eventlist.service;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -16,7 +16,7 @@ import java.util.Set;
 @ApplicationPath("/resource")
 
 public class Config extends Application {
-    private static final String PROPERTIES_PATH = "/home/bzz/webapp/terminList.properties";
+    private static final String PROPERTIES_PATH = "/home/bzz/webapp/eventList.properties";
     private static Properties properties = null;
 
     /**
@@ -27,8 +27,8 @@ public class Config extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
-        providers.add(TerminService.class);
-        providers.add(KalenderService.class);
+        providers.add(EventService.class);
+        providers.add(CalendarService.class);
         providers.add(TestService.class);
         return providers;
     }

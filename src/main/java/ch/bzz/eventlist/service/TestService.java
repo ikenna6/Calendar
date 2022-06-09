@@ -1,4 +1,4 @@
-package ch.bzz.terminlist.service;
+package ch.bzz.eventlist.service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
