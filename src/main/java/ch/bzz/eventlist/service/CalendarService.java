@@ -2,7 +2,9 @@ package ch.bzz.eventlist.service;
 
 import ch.bzz.eventlist.data.DataHandler;
 import ch.bzz.eventlist.model.Calendar;
+import ch.bzz.eventlist.model.Event;
 
+import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -49,18 +51,15 @@ public class CalendarService {
     /**
      * creates a calendar with it params
      *
-     * @param calendarName
      * @return Response
      */
     @PUT
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertCalendar(
-            @FormParam("calendarName") String calendarName
+            @Valid @BeanParam Calendar calendar
     ) {
-        Calendar calendar = new Calendar();
-        calendar.setCalendarName(calendarName);
-        calendar.setCalendarID(calendar.generateCalendarID(calendarName));
+        calendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
 
         DataHandler.insertCalendar(calendar);
 
@@ -74,21 +73,20 @@ public class CalendarService {
      * updates a calendar by its ID
      *
      * @param calendarID
-     * @param calendarName
      * @return Response
      */
     @POST
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateCalendar(
-            @FormParam("calendarID") String calendarID,
-            @FormParam("calendarName") String calendarName
+            @Valid @BeanParam Calendar calendar,
+            @FormParam("calendarID") String calendarID
     ) {
-        Calendar calendar = DataHandler.readCalendarByID(calendarID);
+        Calendar oldCalendar = DataHandler.readCalendarByID(calendarID);
         int httpStatus = 200;
-        if (calendar != null) {
-            calendar.setCalendarName(calendarName);
-            calendar.setCalendarID(calendar.generateCalendarID(calendarName));
+        if (oldCalendar != null) {
+            oldCalendar.setCalendarName(calendar.getCalendarName());
+            oldCalendar.setCalendarID(oldCalendar.generateCalendarID(calendar.getCalendarName()));
 
             DataHandler.updateCalendar();
         } else {
