@@ -3,17 +3,43 @@ package ch.bzz.eventlist.model;
 import ch.bzz.eventlist.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 
 public class Event {
     @JsonIgnore
     private Calendar calendar;
 
+    @FormParam("eventUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String eventUUID;
+
+    @FormParam("title")
+    @NotEmpty
+    @Size(min=3, max=40)
     private String title;
-    private Boolean allDay;
+
+    @FormParam("description")
+    @NotEmpty
+    @Size(min=3, max=200)
     private String description;
+
+    @FormParam("allDay")
+    @NotEmpty
+    private Boolean allDay;
+
+    @FormParam("startDateTime")
+    @NotEmpty
+    @Future
     private LocalDateTime startDateTime;
+
+    @FormParam("endDateTime")
+    @NotEmpty
+    @Future
     private LocalDateTime endDateTime;
 
     /**

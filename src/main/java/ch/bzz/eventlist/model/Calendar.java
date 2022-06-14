@@ -1,10 +1,20 @@
 package ch.bzz.eventlist.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Calendar {
+    @FormParam("calendarID")
+    @Pattern(regexp = "|[0-9a-fA-F]-[0-9]{13}")
     private String calendarID;
+
+    @FormParam("calendarName")
+    @NotEmpty
+    @Size(min = 3, max = 40)
     private String calendarName;
 
     /**
