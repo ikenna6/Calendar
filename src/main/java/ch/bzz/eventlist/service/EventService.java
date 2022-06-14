@@ -3,6 +3,9 @@ package ch.bzz.eventlist.service;
 import ch.bzz.eventlist.data.DataHandler;
 import ch.bzz.eventlist.model.Event;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,7 +20,8 @@ import java.util.UUID;
 public class EventService {
     /**
      * reads a list of all events
-     * @return  events as JSON
+     *
+     * @return events as JSON
      */
     @GET
     @Path("list")
@@ -32,6 +36,7 @@ public class EventService {
 
     /**
      * reads an event identified by the uuid
+     *
      * @param eventUUID the key
      * @return event
      */
@@ -50,9 +55,7 @@ public class EventService {
 
     /**
      * inserts a new event
-     * @param title
-     * @param description
-     * @param allDay
+     *
      * @param startDateTime
      * @param endDateTime
      * @param calendarID
@@ -62,18 +65,16 @@ public class EventService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertEvent(
-            @FormParam("title") String title,
-            @FormParam("description") String description,
-            @FormParam("allDay") Boolean allDay,
+            @Valid @BeanParam Event event,
+            @NotEmpty
+            @Size(min = 23, max = 23)
             @FormParam("startDateTime") String startDateTime,
+            @NotEmpty
+            @Size(min = 23, max = 23)
             @FormParam("endDateTime") String endDateTime,
             @FormParam("calendarID") String calendarID
     ) {
-        Event event = new Event();
         event.setEventUUID(UUID.randomUUID().toString());
-        event.setTitle(title);
-        event.setDescription(description);
-        event.setAllDay(allDay);
         event.setStartDateTime(LocalDateTime.parse(startDateTime));
         event.setEndDateTime(LocalDateTime.parse(endDateTime));
         event.setCalendarID(calendarID);
@@ -88,10 +89,7 @@ public class EventService {
 
     /**
      * updates a event
-     * @param eventUUID
-     * @param title
-     * @param description
-     * @param allDay
+     *
      * @param startDateTime
      * @param endDateTime
      * @param calendarID
@@ -101,23 +99,20 @@ public class EventService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateEvent(
-            @FormParam("eventUUID") String eventUUID,
-            @FormParam("title") String title,
-            @FormParam("description") String description,
-            @FormParam("allDay") Boolean allDay,
+            @Valid @BeanParam Event event,
             @FormParam("startDateTime") String startDateTime,
             @FormParam("endDateTime") String endDateTime,
             @FormParam("calendarID") String calendarID
     ) {
-        Event event = DataHandler.readEventByUUID(eventUUID);
+        Event oldEvent = DataHandler.readEventByUUID(event.getEventUUID());
         int httpStatus = 200;
-        if (event != null) {
-            event.setTitle(title);
-            event.setDescription(description);
-            event.setAllDay(allDay);
-            event.setStartDateTime(LocalDateTime.parse(startDateTime));
-            event.setEndDateTime(LocalDateTime.parse(endDateTime));
-            event.setCalendarID(calendarID);
+        if (oldEvent != null) {
+            oldEvent.setTitle(event.getTitle());
+            oldEvent.setDescription(event.getDescription());
+            oldEvent.setAllDay(event.getAllDay());
+            oldEvent.setStartDateTime(LocalDateTime.parse(startDateTime));
+            oldEvent.setEndDateTime(LocalDateTime.parse(endDateTime));
+            oldEvent.setCalendarID(calendarID);
 
             DataHandler.updateEvent();
         } else {
@@ -131,6 +126,7 @@ public class EventService {
 
     /**
      * deletes a event identified by its UUID
+     *
      * @param eventUUID
      * @return Response
      */

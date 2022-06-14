@@ -3,10 +3,7 @@ package ch.bzz.eventlist.model;
 import ch.bzz.eventlist.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 
@@ -29,16 +26,11 @@ public class Event {
     private String description;
 
     @FormParam("allDay")
-    @NotEmpty
     private Boolean allDay;
 
-    @FormParam("startDateTime")
-    @NotEmpty
     @Future
     private LocalDateTime startDateTime;
 
-    @FormParam("endDateTime")
-    @NotEmpty
     @Future
     private LocalDateTime endDateTime;
 

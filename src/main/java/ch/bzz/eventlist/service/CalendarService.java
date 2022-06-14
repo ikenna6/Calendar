@@ -13,7 +13,10 @@ import java.util.List;
  */
 @Path("calendar")
 public class CalendarService {
-
+    /**
+     * reads a list of all calendars
+     * @return calendars as JSON
+     */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,6 +28,11 @@ public class CalendarService {
                 .build();
     }
 
+    /**
+     * reads a calendars identified by the uuid
+     * @param calendarID  the key
+     * @return calendar
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
