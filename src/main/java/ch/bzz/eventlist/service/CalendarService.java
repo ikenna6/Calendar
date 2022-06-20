@@ -51,9 +51,10 @@ public class CalendarService {
     /**
      * creates a calendar with it params
      *
+     * @param calendar
      * @return Response
      */
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertCalendar(
@@ -72,21 +73,19 @@ public class CalendarService {
     /**
      * updates a calendar by its ID
      *
-     * @param calendarID
      * @return Response
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateCalendar(
-            @Valid @BeanParam Calendar calendar,
-            @FormParam("calendarID") String calendarID
+            @Valid @BeanParam Calendar calendar
     ) {
-        Calendar oldCalendar = DataHandler.readCalendarByID(calendarID);
+        Calendar oldCalendar = DataHandler.readCalendarByID(calendar.getCalendarID());
         int httpStatus = 200;
         if (oldCalendar != null) {
+            oldCalendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
             oldCalendar.setCalendarName(calendar.getCalendarName());
-            oldCalendar.setCalendarID(oldCalendar.generateCalendarID(calendar.getCalendarName()));
 
             DataHandler.updateCalendar();
         } else {

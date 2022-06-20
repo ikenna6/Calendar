@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class Calendar {
     @FormParam("calendarID")
-    @Pattern(regexp = "|[0-9a-fA-F]-[0-9]{13}")
+    // @Pattern(regexp = "|[0-9a-fA-F]-[0-9]{13}")
     private String calendarID;
 
     @FormParam("calendarName")

@@ -61,7 +61,7 @@ public class EventService {
      * @param calendarID
      * @return Response
      */
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertEvent(
@@ -91,11 +91,12 @@ public class EventService {
      * updates a event
      *
      * @param startDateTime
+     * @param event
      * @param endDateTime
      * @param calendarID
      * @return Response
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateEvent(
