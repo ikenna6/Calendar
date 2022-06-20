@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class Calendar {
     @FormParam("calendarID")
-    // @Pattern(regexp = "|[0-9a-fA-F]-[0-9]{13}")
+    //@Pattern(regexp = "/[a-zA-Z0-9]-[0-9]{13}/g")
     private String calendarID;
 
     @FormParam("calendarName")
@@ -53,7 +53,12 @@ public class Calendar {
         this.calendarName = calendarName;
     }
 
-
+    /**
+     * creates a calendar ID consisting of @param calendarName and current timestamp
+     * in between those two values there is a "-"
+     * @param calendarName
+     * @return calenderID
+     */
     public static String generateCalendarID(String calendarName) {
         LocalDateTime now = LocalDateTime.now();
         Timestamp timestamp = Timestamp.valueOf(now);

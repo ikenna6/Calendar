@@ -1,0 +1,2266 @@
+{
+	"info": {
+		"_postman_id": "d4cf7979-7438-42a1-b88d-3d8ac46f122d",
+		"name": "Calendar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.1.1 get all events",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.1.2 get alle kalender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"list"
+					]
+				},
+				"description": "gets all Kalender"
+			},
+			"response": []
+		},
+		{
+			"name": "1.2.1 read event by uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/read?uuid=fb1ceee3-99ef-4b41-8383-4c99ca3421e6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "fb1ceee3-99ef-4b41-8383-4c99ca3421e6"
+						},
+						{
+							"key": "uuid",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"disabled": true
+						},
+						{
+							"key": "uuid",
+							"value": "ae10e2c4-b272-4e75-b5b4-17fc641d878a",
+							"disabled": true
+						},
+						{
+							"key": "uuid",
+							"value": "bb028016-c954-4c82-9d81-c113c652bfb5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2.2 read calendar by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/read?id=kalender1-2022-05-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "kalender2-2022-06-19",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "kalender3-2022-07-19",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "kalender1-2022-05-19"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3.1 create event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "bitte gahts immerno",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.3.2 create calendar ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarName",
+							"value": "jetzt POST",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.1 update event",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "gahts jetzt eigentlich?",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Sehr viel arbeit heute",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.4.2 update calendar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarID",
+							"value": "neu-1655750244049",
+							"type": "text"
+						},
+						{
+							"key": "calendarName",
+							"value": "neuerAlsNei",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.5.1 delete event by uuid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/delete?uuid=c306698f-44ac-43cc-a725-ef9ed950fe14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.5.2 delete Kalender by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/delete?id=schule-2022-5-29",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "schule-2022-5-29"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1.1 read event by a false uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"trying to read a termin with a incorrect uuid\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(null);",
+							"    pm.response.to.not.have.jsonBody(\"error\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/read?uuid=12345678-abcd-ef01-2222-9876543210ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "12345678-abcd-ef01-2222-9876543210ac",
+							"description": "Falsche uuid"
+						}
+					]
+				},
+				"description": "testing with a wrong uuid"
+			},
+			"response": []
+		},
+		{
+			"name": "2.1.2 read calendar by false ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"trying to read a kalender with a invalid kalenderid\", function () {",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/read?id=ramiro-2748291057893",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "ramiro-2748291057893"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2.1 delete event by false uuid",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/delete?uuid=12345678-abcd-ef01-2222-9876543210ac",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "12345678-abcd-ef01-2222-9876543210ac"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2.2 delete calendar with false ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/delete?id=ramiro-1234567890123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "ramiro-1234567890123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3.1 update event false uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "12345678-abcd-ef01-2222-9876543210ac",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "gahts jetzt eigentlich?",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Sehr viel arbeit heute",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3.2 update calendar false ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarID",
+							"value": "neu-1655746076312",
+							"type": "text"
+						},
+						{
+							"key": "calendarName",
+							"value": "neu",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.4 create event false calendarID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "bitte gahts immerno",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "ramiro-16538516778533",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1.1 create event too short title",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "o",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "bitte gahts immerno",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1.2 create calendar too short calendarName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarName",
+							"value": "j",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.2.1 create event too long title Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "oasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdf",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "bitte gahts immerno",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.2.2 create calendar too long calendarName Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarName",
+							"value": "oasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdf",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.3 create event description too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "b",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.4 create event description too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "boasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdf",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.5 create event  startDateTime too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "wert 5 eingegeben",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2022-06-15T18:30:00.00000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.6 create event  startDateTime too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "wert 5 eingegeben",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.7 create event  endDateTime too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "wert 5 eingegeben",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2022-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.00",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.8 create event  endDateTime too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "also vorher isch gange",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "wert 5 eingegeben",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-15T18:30:",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-15T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1.1 update event too short title",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "g",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Sehr viel arbeit heute",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1.2update calendar calendarName too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarID",
+							"value": "neu-1655750244049",
+							"type": "text"
+						},
+						{
+							"key": "calendarName",
+							"value": "s",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2.1 update event too long title",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "gSehr viel arbeit heuteSehr viel arbeit heuteSehr viel arbeit heuteSehr viel arbeit heuteSehr viel arbeit heuteSehr viel arbeit heute",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Sehr viel arbeit heute",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2.2 update calendar calendarName too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "calendarID",
+							"value": "neu-1655750244049",
+							"type": "text"
+						},
+						{
+							"key": "calendarName",
+							"value": "sneu-1655750244049neu-1655750244049neu-1655750244049neu-1655750244049neu-1655750244049neu-1655750244049",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/calendar/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"calendar",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3 update event description too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht nicht",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.4 update event description too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "oasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdfoasdasdasdasdasdasfdsdkjlfhasöldkfjasöldkjfaösldkjfaölskdjföalskdjfölaskdjfölaskdjfölaskdjfölaskdjfölskdjfölaskdjfölaksjdfölaksjdfölaskjdfölaksjdfölakjsdf",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.5 update event startDateTime too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht ned",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.00",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.6 update event startDateTime too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht ned",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.00000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.0000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.7 update event endDateTime too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht ned",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.0000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.8 update event endDateTime too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht ned",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.00000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.0000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.8.1 update event eventUUID formal false",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "eventUUID",
+							"value": "c306698f-44ac-43cc-a725-ef9ed950fe14-123",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "geht ned",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "s",
+							"type": "text"
+						},
+						{
+							"key": "allDay",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "startDateTime",
+							"value": "2023-06-07T18:30:00.0000",
+							"type": "text"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-06-07T20:00:00.0000",
+							"type": "text"
+						},
+						{
+							"key": "calendarID",
+							"value": "privat13-1653851677853",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Calendar-1.0/resource/event/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Calendar-1.0",
+						"resource",
+						"event",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

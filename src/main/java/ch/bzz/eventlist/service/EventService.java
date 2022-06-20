@@ -4,6 +4,7 @@ import ch.bzz.eventlist.data.DataHandler;
 import ch.bzz.eventlist.model.Event;
 
 import javax.validation.Valid;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import javax.ws.rs.*;
@@ -101,7 +102,11 @@ public class EventService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateEvent(
             @Valid @BeanParam Event event,
+            @NotEmpty
+            @Size(min = 23, max = 23)
             @FormParam("startDateTime") String startDateTime,
+            @NotEmpty
+            @Size(min = 23, max = 23)
             @FormParam("endDateTime") String endDateTime,
             @FormParam("calendarID") String calendarID
     ) {
