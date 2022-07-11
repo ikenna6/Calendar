@@ -20,7 +20,6 @@ import java.util.List;
  */
 
 public final class DataHandler {
-    private static DataHandler instance;
     private static List<Event> eventList;
     private static List<Calendar> calendarList;
 

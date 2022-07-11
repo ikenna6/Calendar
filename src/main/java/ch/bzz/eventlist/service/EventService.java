@@ -68,10 +68,10 @@ public class EventService {
     public Response insertEvent(
             @Valid @BeanParam Event event,
             @NotEmpty
-            @Size(min = 23, max = 23)
+            @Size(min = 16, max = 23)
             @FormParam("startDateTime") String startDateTime,
             @NotEmpty
-            @Size(min = 23, max = 23)
+            @Size(min = 16, max = 23)
             @FormParam("endDateTime") String endDateTime,
             @FormParam("calendarID") String calendarID
     ) {
@@ -103,10 +103,10 @@ public class EventService {
     public Response updateEvent(
             @Valid @BeanParam Event event,
             @NotEmpty
-            @Size(min = 23, max = 23)
+            @Size(min = 16, max = 23)
             @FormParam("startDateTime") String startDateTime,
             @NotEmpty
-            @Size(min = 23, max = 23)
+            @Size(min = 16, max = 23)
             @FormParam("endDateTime") String endDateTime,
             @FormParam("calendarID") String calendarID
     ) {
