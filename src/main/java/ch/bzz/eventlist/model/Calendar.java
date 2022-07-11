@@ -1,7 +1,6 @@
 package ch.bzz.eventlist.model;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.sql.Timestamp;

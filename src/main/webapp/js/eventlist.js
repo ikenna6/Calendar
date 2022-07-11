@@ -1,5 +1,5 @@
 /**
- * view-controller for calendar.html
+ * view-controller for eventlist.html
  * @author Ikenna Ogbueri
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -84,7 +84,7 @@ function deleteEvent(event) {
         })
         .then(function (response) {
             if (response.ok ) {
-                window.location.href = "./calendar.html";
+                window.location.href = "../eventlist.html";
             } else {
                 console.log(response);
             }

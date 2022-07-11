@@ -110,7 +110,7 @@ public class CalendarService {
             @QueryParam("id") String calendarID
     ) {
         int httpStatus = 200;
-        if (DataHandler.deleteCalendar(calendarID)) {
+        if (!DataHandler.deleteCalendar(calendarID)) {
             httpStatus = 410;
         }
         return Response
