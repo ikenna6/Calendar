@@ -143,7 +143,7 @@ public class EventService {
             @QueryParam("uuid") String eventUUID
     ) {
         int httpStatus = 200;
-        if (DataHandler.deleteEvent(eventUUID)) {
+        if (!DataHandler.deleteEvent(eventUUID)) {
             httpStatus = 410;
         }
         return Response

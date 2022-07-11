@@ -128,5 +128,5 @@ function showCalendars(data) {
  * @param event  the click-event
  */
 function cancelEdit(event) {
-    window.location.href = "../calendar.html";
+    window.location.href = "./calendar.html";
 }
