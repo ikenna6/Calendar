@@ -4,7 +4,6 @@ import ch.bzz.eventlist.data.DataHandler;
 import ch.bzz.eventlist.model.Event;
 
 import javax.validation.Valid;
-import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import javax.ws.rs.*;
@@ -20,17 +19,26 @@ import java.util.UUID;
 @Path("event")
 public class EventService {
     /**
-     * reads a list of all events
+     * reads a list of all eventsoldEvent
      *
      * @return events as JSON
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listEvents() {
+    public Response listEvents(
+            @CookieParam("userRole") String userRole
+    ) {
         List<Event> eventList = DataHandler.readAllEvents();
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+            eventList = null;
+        } else {
+            httpStatus = 200;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(eventList)
                 .build();
     }
@@ -45,11 +53,19 @@ public class EventService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readEvent(
-            @QueryParam("uuid") String eventUUID
+            @QueryParam("uuid") String eventUUID,
+            @CookieParam("userRole") String userRole
     ) {
+        int httpStatus = 200;
         Event event = DataHandler.readEventByUUID(eventUUID);
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+            event = null;
+        } else if (event == null) {
+            httpStatus = 410;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(event)
                 .build();
     }
@@ -73,23 +89,29 @@ public class EventService {
             @NotEmpty
             @Size(min = 16, max = 23)
             @FormParam("endDateTime") String endDateTime,
-            @FormParam("calendarID") String calendarID
+            @FormParam("calendarID") String calendarID,
+            @CookieParam("userRole") String userRole
     ) {
-        event.setEventUUID(UUID.randomUUID().toString());
-        event.setStartDateTime(LocalDateTime.parse(startDateTime));
-        event.setEndDateTime(LocalDateTime.parse(endDateTime));
-        event.setCalendarID(calendarID);
 
-        DataHandler.insertEvent(event);
 
+        int httpStatus = 200;
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            event.setEventUUID(UUID.randomUUID().toString());
+            event.setStartDateTime(LocalDateTime.parse(startDateTime));
+            event.setEndDateTime(LocalDateTime.parse(endDateTime));
+            event.setCalendarID(calendarID);
+            DataHandler.insertEvent(event);
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
 
     /**
-     * updates a event
+     * updates an event
      *
      * @param startDateTime
      * @param event
@@ -108,18 +130,20 @@ public class EventService {
             @NotEmpty
             @Size(min = 16, max = 23)
             @FormParam("endDateTime") String endDateTime,
-            @FormParam("calendarID") String calendarID
+            @FormParam("calendarID") String calendarID,
+            @CookieParam("userRole") String userRole
     ) {
-        Event oldEvent = DataHandler.readEventByUUID(event.getEventUUID());
         int httpStatus = 200;
-        if (oldEvent != null) {
+        Event oldEvent = DataHandler.readEventByUUID(event.getEventUUID());
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else if (oldEvent != null) {
             oldEvent.setTitle(event.getTitle());
             oldEvent.setDescription(event.getDescription());
             oldEvent.setAllDay(event.getAllDay());
             oldEvent.setStartDateTime(LocalDateTime.parse(startDateTime));
             oldEvent.setEndDateTime(LocalDateTime.parse(endDateTime));
             oldEvent.setCalendarID(calendarID);
-
             DataHandler.updateEvent();
         } else {
             httpStatus = 410;
@@ -140,11 +164,16 @@ public class EventService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteEvent(
-            @QueryParam("uuid") String eventUUID
+            @QueryParam("uuid") String eventUUID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteEvent(eventUUID)) {
-            httpStatus = 410;
+        if (userRole == null || !userRole.equals("admin")) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteEvent(eventUUID)) {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)

@@ -2,7 +2,6 @@ package ch.bzz.eventlist.service;
 
 import ch.bzz.eventlist.data.DataHandler;
 import ch.bzz.eventlist.model.Calendar;
-import ch.bzz.eventlist.model.Event;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -17,33 +16,52 @@ import java.util.List;
 public class CalendarService {
     /**
      * reads a list of all calendars
+     *
      * @return calendars as JSON
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listCalendar() {
+    public Response listCalendar(
+            @CookieParam("userRole") String userRole
+    ) {
         List<Calendar> calendarList = DataHandler.readAllCalendar();
+        int httpStatus;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+            calendarList = null;
+        } else {
+            httpStatus = 200;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(calendarList)
                 .build();
     }
 
     /**
      * reads a calendars identified by the uuid
-     * @param calendarID  the key
+     *
+     * @param calendarID the key
      * @return calendar
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readCalendar(
-            @QueryParam("id") String calendarID
+            @QueryParam("id") String calendarID,
+            @CookieParam("userRole") String userRole
     ) {
+        int httpStatus = 200;
         Calendar calendar = DataHandler.readCalendarByID(calendarID);
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+            calendar = null;
+        } else if (calendar == null) {
+            httpStatus = 410;
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(calendar)
                 .build();
     }
@@ -58,14 +76,18 @@ public class CalendarService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertCalendar(
-            @Valid @BeanParam Calendar calendar
+            @Valid @BeanParam Calendar calendar,
+            @CookieParam("userRole") String userRole
     ) {
-        calendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
-
-        DataHandler.insertCalendar(calendar);
-
+        int httpStatus = 200;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            calendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
+            DataHandler.insertCalendar(calendar);
+        }
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -79,14 +101,16 @@ public class CalendarService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateCalendar(
-            @Valid @BeanParam Calendar calendar
+            @Valid @BeanParam Calendar calendar,
+            @CookieParam("userRole") String userRole
     ) {
-        Calendar oldCalendar = DataHandler.readCalendarByID(calendar.getCalendarID());
         int httpStatus = 200;
-        if (oldCalendar != null) {
+        Calendar oldCalendar = DataHandler.readCalendarByID(calendar.getCalendarID());
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else if (oldCalendar != null) {
             oldCalendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
             oldCalendar.setCalendarName(calendar.getCalendarName());
-
             DataHandler.updateCalendar();
         } else {
             httpStatus = 410;
@@ -107,11 +131,16 @@ public class CalendarService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteCalendar(
-            @QueryParam("id") String calendarID
+            @QueryParam("id") String calendarID,
+            @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (!DataHandler.deleteCalendar(calendarID)) {
-            httpStatus = 410;
+        if (userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        } else {
+            if (!DataHandler.deleteCalendar(calendarID)) {
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)
