@@ -1,28 +1,22 @@
 [ {
-  "calendarID" : "geschäft-2022-5-29",
-  "calendarName" : "geschäft"
+  "calendarID" : "privat-1657616659633",
+  "calendarName" : "privat"
 }, {
-  "calendarID" : "fussball-2022-5-29",
-  "calendarName" : "fussball"
+  "calendarID" : "public-1657635703833",
+  "calendarName" : "public"
 }, {
-  "calendarID" : "privat13-1653851677853",
-  "calendarName" : "privat13"
+  "calendarID" : "toEdit-1657636007387",
+  "calendarName" : "toEdit"
 }, {
-  "calendarID" : "kalender1-2022-05-19",
-  "calendarName" : "kalender1"
+  "calendarID" : "toDelete-1657636013280",
+  "calendarName" : "toDelete"
 }, {
-  "calendarID" : "kalender2-2022-06-19",
-  "calendarName" : "kalender2"
+  "calendarID" : "new Calendar-1657637853124",
+  "calendarName" : "new Calendar"
 }, {
-  "calendarID" : "kalender3-2022-07-19",
-  "calendarName" : "kalender3"
+  "calendarID" : "privat-1657637852471",
+  "calendarName" : "privat"
 }, {
-  "calendarID" : "arbeit-1655217335454",
-  "calendarName" : "arbeit"
-}, {
-  "calendarID" : "neuerAlsNei-1655753976117",
-  "calendarName" : "neuerAlsNei"
-}, {
-  "calendarID" : "jetzt POST-1655745094598",
-  "calendarName" : "jetzt POST"
+  "calendarID" : "new Calendar-1657637853018",
+  "calendarName" : "new Calendar"
 } ]
