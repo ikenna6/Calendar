@@ -2,6 +2,7 @@ package ch.bzz.eventlist.data;
 
 import ch.bzz.eventlist.model.Calendar;
 import ch.bzz.eventlist.model.Event;
+import ch.bzz.eventlist.model.User;
 import ch.bzz.eventlist.service.Config;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +23,8 @@ import java.util.List;
 public final class DataHandler {
     private static List<Event> eventList;
     private static List<Calendar> calendarList;
+    private static List<User> userList;
+
 
     /**
      * private constructor defeats instantiation
@@ -69,6 +72,38 @@ public final class DataHandler {
      */
     public static void updateEvent() {
         writeEventJSON();
+    }
+
+    /**
+     * reads a user by the username/password provided
+     *
+     * @param username
+     * @param password
+     * @return user-object
+     */
+    public static User readUser(String username, String password) {
+        User user = new User();
+        for (User entry : getUserList()) {
+            if (entry.getUsername().equals(username) &&
+                    entry.getPassword().equals(password)) {
+                user = entry;
+            }
+        }
+        return user;
+    }
+
+    /**
+     * gets userList
+     *
+     * @return value of userList
+     */
+
+    public static List<User> getUserList() {
+        if (DataHandler.userList == null) {
+            DataHandler.setUserList(new ArrayList<>());
+            readUserJSON();
+        }
+        return userList;
     }
 
     /**
@@ -229,6 +264,26 @@ public final class DataHandler {
     }
 
     /**
+     * reads the users from the JSON-file
+     */
+    private static void readUserJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("userJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * gets eventList
      *
      * @return value of eventList
@@ -278,5 +333,14 @@ public final class DataHandler {
         DataHandler.calendarList = calendarList;
     }
 
+    /**
+     * sets userList
+     *
+     * @param userList the value to set
+     */
+
+    public static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
+    }
 
 }

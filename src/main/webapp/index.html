@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="author" content="Ikenna Ogbueri"/>
+    <meta name="copyright" content="FG ICT - Bildungszentrum Zürichsee"/>
+    <meta name="project" content="Calendar"/>
+    <title>login</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/util.js"></script>
+    <script src="./js/login.js"></script>
 </head>
 <body>
-
+<nav id="nav"></nav>
+<h3>login</h3>
+<form id="loginForm">
+    <table>
+        <tr>
+            <td><label for="username">username</label></td>
+            <td><input id="username" name="username" type="text"/>
+        </tr>
+        <tr>
+            <td><label for="password">password</label></td>
+            <td><input id="password" name="password" type="password"/>
+        </tr>
+        <tr>
+            <td>
+                <button id="login" type="submit">login</button>
+            </td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

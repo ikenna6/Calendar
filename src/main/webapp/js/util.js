@@ -12,7 +12,7 @@
  * @param key  the key to be searched
  * @returns values as a String or null
  */
-function getQueryParam (key) {
+function getQueryParam(key) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
@@ -29,7 +29,7 @@ function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let cookieArray = decodedCookie.split(';');
-    for(let i = 0; i <cookieArray.length; i++) {
+    for (let i = 0; i < cookieArray.length; i++) {
         let cookie = cookieArray[i];
         while (cookie.charAt(0) === ' ') {
             cookie = cookie.substring(1);
@@ -39,4 +39,35 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+/**
+ * shows the navigation
+ * @param userRole
+ */
+function showNav(userRole) {
+    const navbar = document.getElementById("nav");
+    let text = "<ul>";
+    if (!userRole || userRole === "guest") {
+        text += "<li><a href='./index.html'>login</a></li>";
+    } else {
+        text += "<li><a href='./eventlist.js'>Events</a></li>" +
+            "<li><a href='./publisherlist.html'>Calendars</a></li>" +
+            "<li><a href='./index.html'>logout</a></li>";
+
+    }
+    text += "<li id='message' style='color: red;'></li>" +
+        "</ul>";
+    navbar.innerHTML = text;
+}
+
+/**
+ * shows an information or error message
+ * @param text  the message text
+ * @param type  the message type (info, warning, error)
+ */
+function showMessage(text, type) {
+    const field = document.getElementById("message");
+    field.className = type;
+    field.innerText = text;
 }

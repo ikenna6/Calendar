@@ -43,7 +43,10 @@ function saveEvent(event) {
         .then(function (response) {
             if (!response.ok) {
                 console.log(response);
-            } else return response;
+            } else {
+                window.location.href = "./eventlist.html";
+                return response;
+            }
         })
         .then()
         .catch(function (error) {

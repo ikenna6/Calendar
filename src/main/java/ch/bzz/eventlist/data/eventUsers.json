@@ -1,0 +1,14 @@
+[
+  {
+    "userUUID": "49bfab55-cd1b-46d0-bcfd-ca11ae659f28",
+    "username": "ikenna",
+    "role": "admin",
+    "password": "12345678"
+  },
+  {
+    "userUUID": "49bfab55-cd1b-46d0-bcfd-ca11ae659f29",
+    "username": "ramiro",
+    "role": "user",
+    "password": "passwort"
+  }
+]
