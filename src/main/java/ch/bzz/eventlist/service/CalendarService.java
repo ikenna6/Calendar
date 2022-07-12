@@ -80,7 +80,7 @@ public class CalendarService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             calendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
@@ -106,7 +106,7 @@ public class CalendarService {
     ) {
         int httpStatus = 200;
         Calendar oldCalendar = DataHandler.readCalendarByID(calendar.getCalendarID());
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else if (oldCalendar != null) {
             oldCalendar.setCalendarID(calendar.generateCalendarID(calendar.getCalendarName()));
@@ -135,7 +135,7 @@ public class CalendarService {
             @CookieParam("userRole") String userRole
     ) {
         int httpStatus = 200;
-        if (userRole == null || userRole.equals("guest")) {
+        if (userRole == null || !userRole.equals("admin")) {
             httpStatus = 403;
         } else {
             if (!DataHandler.deleteCalendar(calendarID)) {
