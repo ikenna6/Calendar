@@ -2,9 +2,13 @@
  * view-controller for calendaredit.html
  * @author Ikenna Ogbueri
  */
+
+const userRole = getCookie("userRole");
+
 document.addEventListener("DOMContentLoaded", () => {
     readCalendars();
     readCalendar();
+    showNav(userRole);
 
     document.getElementById("calendareditForm").addEventListener("submit", saveCalendar);
     document.getElementById("cancel").addEventListener("click", cancelEdit);
@@ -30,7 +34,6 @@ function saveCalendar(calendar) {
         method = "PUT";
         url += "update";
     }
-    data.set("allDay", document.getElementById('allDay').checked);
 
     fetch(url,
         {
@@ -43,7 +46,10 @@ function saveCalendar(calendar) {
         .then(function (response) {
             if (!response.ok) {
                 console.log(response);
-            } else return response;
+            } else {
+                window.location.href = "./calendarlist.html";
+                return response;
+            }
         })
         .then()
         .catch(function (error) {

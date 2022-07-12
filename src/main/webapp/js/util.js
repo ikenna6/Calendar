@@ -51,8 +51,8 @@ function showNav(userRole) {
     if (!userRole || userRole === "guest") {
         text += "<li><a href='./index.html'>login</a></li>";
     } else {
-        text += "<li><a href='./eventlist.js'>Events</a></li>" +
-            "<li><a href='./publisherlist.html'>Calendars</a></li>" +
+        text += "<li><a href='./eventlist.html'>Events</a></li>" +
+            "<li><a href='./calendarlist.html'>Calendars</a></li>" +
             "<li><a href='./index.html'>logout</a></li>";
 
     }

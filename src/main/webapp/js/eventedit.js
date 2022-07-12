@@ -2,9 +2,13 @@
  * view-controller for eventedit.html
  * @author Ikenna Ogbueri
  */
+
+const userRole = getCookie("userRole");
+
 document.addEventListener("DOMContentLoaded", () => {
     readCalendars();
     readEvent();
+    showNav(userRole);
 
     document.getElementById("eventeditForm").addEventListener("submit", saveEvent);
     document.getElementById("cancel").addEventListener("click", cancelEdit);

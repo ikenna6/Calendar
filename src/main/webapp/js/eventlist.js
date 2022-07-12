@@ -2,8 +2,11 @@
  * view-controller for eventlist.html
  * @author Ikenna Ogbueri
  */
+const userRole = getCookie("userRole");
+
 document.addEventListener("DOMContentLoaded", () => {
     readEvents();
+    showNav(userRole);
 });
 
 /**

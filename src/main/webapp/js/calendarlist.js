@@ -2,8 +2,13 @@
  * view-controller for calendarlist.html
  * @author Ikenna Ogbueri
  */
+
+const userRole = getCookie("userRole");
+
 document.addEventListener("DOMContentLoaded", () => {
     readCalendars();
+    showNav(userRole);
+
 });
 
 /**
@@ -78,7 +83,7 @@ function deleteCalendar(event) {
             method: "DELETE"
         })
         .then(function (response) {
-            if (response.ok ) {
+            if (response.ok) {
                 window.location.href = "./calendarlist.html";
             } else {
                 console.log(response);
